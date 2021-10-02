@@ -30,10 +30,6 @@
               </li>
 
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -46,7 +42,8 @@
 
 
       <div class="container">
-        <form action="/analyze" method="GET">
+        <form action="/analyze" method="POST">
+          {% csrf_token %}
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Enter your text here...</label>
             <textarea name = "text" class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
@@ -57,7 +54,7 @@
           </div>
           <div class="form-check form-switch">
             <input name="fullcaps" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">RUPPER CASE</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">UPPER CASE</label>
           </div>
           <div class="form-check form-switch">
             <input name="newlineremove" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -67,10 +64,7 @@
             <input name="extraspaceremove" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
             <label class="form-check-label" for="flexSwitchCheckDefault">Remove extra space</label>
           </div>
-          <div class="form-check form-switch">
-            <input name="charcount" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Count Characters</label>
-          </div>
+
 
           <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
         </form>

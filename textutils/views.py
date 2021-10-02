@@ -33,7 +33,11 @@ def analyze(request):
     if extraspaceremove=='on':
         analyzed=''
         for i,ch in enumerate(txt):
-            if not(txt[i]==" " and txt[i+1]==" "):
+            s = len(txt)-1
+            if(i<s):
+                if not(txt[i]==" " and txt[i+1]==" ") :
+                    analyzed = analyzed + ch
+            else :
                 analyzed = analyzed + ch
         txt = analyzed
 
